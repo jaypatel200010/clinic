@@ -1,0 +1,134 @@
+{
+  "doctor": [
+    {
+      "id": 1,
+      "name": "Dr. John Doe",
+      "Specialty": "Cardiology",
+      "Hospital": "Main hospital",
+      "contact": 9722041171,
+      "email": "john@gmail.com",
+      "status": "Unblock"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Smith",
+      "Specialty": "Neurology",
+      "Hospital": "Main hospital",
+      "contact": 9722041171,
+      "email": "smith@gmail.com",
+      "status": "Unblock"
+    }
+  ],
+  "medicine": [
+    {
+      "id": 1,
+      "name": "paracetamol",
+      "Type": "Tablet",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Manufacturer": "Manufacturer X",
+      "Price": "10rs"
+    },
+    {
+      "id": 2,
+      "name": "omeprazole",
+      "Type": "Tablet",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Manufacturer": "Manufacturer X",
+      "Price": "10rs"
+    }
+  ],
+  "supplies": [
+    {
+      "id": 1,
+      "name": "bed",
+      "Category": "DME",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Quantity": 2,
+      "Price": "1000rs"
+    },
+    {
+      "id": 2,
+      "name": "nebulizer",
+      "Category": "DME",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Quantity": 2,
+      "Price": "1000rs"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "bed",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cost": "2000rs"
+    },
+    {
+      "id": 2,
+      "name": "bed",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "cost": "2000rs"
+    }
+  ],
+  "patient": [
+    {
+      "id": 1,
+      "name": "Jay Patel",
+      "Age": 23,
+      "Gender": "male",
+      "Address": "123 Main Street, City",
+      "contact": 9722041171,
+      "email": "jay@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Jay Patel",
+      "Age": 23,
+      "Gender": "male",
+      "Address": "123 Main Street, City",
+      "contact": 9722041171,
+      "email": "jay@gmail.com"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "name": "Jay Patel",
+      "email": "jay@gmail.com",
+      "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 2,
+      "name": "Jay Patel",
+      "email": "jay@gmail.com",
+      "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "name": "Jay Patel",
+      "email": "jay@gmail.com",
+      "contact": 9722041171,
+      "Doctor": "Dr. Smith",
+      "date": "02-03-2024",
+      "Problem Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "id": 2,
+      "name": "Jay Patel",
+      "email": "jay@gmail.com",
+      "contact": 9722041171,
+      "Doctor": "Dr. Smith",
+      "date": "02-03-2024",
+      "Problem Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456"
+    }
+  ]
+}

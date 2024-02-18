@@ -1,6 +1,22 @@
-import React from "react";
-
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 function Manage_Appointments() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  const fetch = async () => {
+    const res = await axios.get(`http://localhost:3000/appointments`);
+    console.log(res.data);
+    setData(res.data);
+  };
+  const deleteHandel = async (id) => {
+    const res = await axios.delete(`http://localhost:3000/appointments/${id}`);
+    fetch();
+  };
+
   return (
     <>
       <div className="container mt-5">
@@ -11,27 +27,38 @@ function Manage_Appointments() {
               <th>ID</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Mobile</th>
+              <th>Contact</th>
               <th>Doctor</th>
               <th>Date</th>
+              <th>Time</th>
               <th>Problem Description</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Doe</td>
-              <td>john.doe@example.com</td>
-              <td>123-456-7890</td>
-              <td>Dr. Smith</td>
-              <td>2024-02-07</td>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-              <td>
-                <button className="btn btn-sm btn-primary">Edit</button>
-                <button className="btn btn-sm btn-danger">Delete</button>
-              </td>
-            </tr>
+            {data.map((value) => {
+              return (
+                <tr>
+                  <td>{value.id}</td>
+                  <td>{value.Name}</td>
+                  <td>{value.Email}</td>
+                  <td>{value.Contact}</td>
+                  <td>{value.Doctor}</td>
+                  <td>{value.Date}</td>
+                  <td>{value.Time}</td>
+                  <td>{value.Problem}</td>
+                  <td>
+                    <button className="btn btn-sm btn-primary">Edit</button>
+                    <button
+                      className="btn btn-sm btn-danger"
+                      onClick={() => deleteHandel(value.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
             {/* Add more rows for additional appointments as needed */}
           </tbody>
         </table>

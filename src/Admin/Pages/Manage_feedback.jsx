@@ -1,6 +1,22 @@
-import React from "react";
-
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 function Manage_feedback() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  const fetch = async () => {
+    const res = await axios.get(`http://localhost:3000/feedback`);
+    console.log(res.data);
+    setData(res.data);
+  };
+  const deleteHandel = async (id) => {
+    const res = await axios.delete(`http://localhost:3000/feedback/${id}`);
+    fetch();
+  };
+
   return (
     <>
       <div>
@@ -17,18 +33,25 @@ function Manage_feedback() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>john.doe@example.com</td>
-                <td>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </td>
-                <td>
-                  <button className="btn btn-sm btn-primary">Edit</button>
-                  <button className="btn btn-sm btn-danger">Delete</button>
-                </td>
-              </tr>
+              {data.map((value) => {
+                return (
+                  <tr>
+                    <td>{value.id}</td>
+                    <td>{value.Name}</td>
+                    <td>{value.Email}</td>
+                    <td>{value.Feedback}</td>
+                    <td>
+                      <button className="btn btn-sm btn-primary">Edit</button>
+                      <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => deleteHandel(value.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
               {/* Add more rows for additional feedbacks as needed */}
             </tbody>
           </table>

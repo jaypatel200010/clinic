@@ -1,6 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function Manage_Doctors() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch();
+  }, []);
+  const fetch = async () => {
+    const res = await axios.get("http://localhost:3000/doctor");
+    console.log(res.data);
+    setData(res.data);
+  };
+  const deleteHandel = async (id) => {
+    const res = await axios.delete(`http://localhost:3000/doctor/${id}`);
+    console.log(res.data);
+    fetch();
+  };
   return (
     <>
       <div className="container mt-5">
@@ -19,19 +34,28 @@ function Manage_Doctors() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dr. John Doe</td>
-              <td>Cardiology</td>
-              <td>Main Hospital</td>
-              <td>123-456-7890</td>
-              <td>john.doe@example.com</td>
-              <td>
-                <button className="btn btn-sm btn-primary">Edit</button>
-                <button className="btn btn-sm btn-danger">Delete</button>
-              </td>
-              <td>Unblock</td>
-            </tr>
+            {data.map((value) => {
+              return (
+                <tr>
+                  <td>{value.id}</td>
+                  <td>{value.name}</td>
+                  <td>{value.Specialty}</td>
+                  <td>{value.Hospital}</td>
+                  <td>{value.contact}</td>
+                  <td>{value.email}</td>
+                  <td>
+                    <button className="btn btn-sm btn-primary">Edit</button>
+                    <button
+                      className="btn btn-sm btn-danger"
+                      onClick={() => deleteHandel(value.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                  <td>Unblock</td>
+                </tr>
+              );
+            })}
 
             {/* Add more rows for additional doctors as needed */}
           </tbody>

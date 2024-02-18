@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
 
 function Appointment() {
+  const [formvalue, setFormvalue] = useState({
+    id: "",
+    Name: "",
+    Email: "",
+    Contact: "",
+    Doctor: "",
+    Date: "",
+    Time: "",
+    Problem: "",
+  });
+
+  const getform = (e) => {
+    setFormvalue({
+      ...formvalue,
+      id: new Date().getTime().toString(),
+      [e.target.name]: e.target.value,
+    });
+    console.log(formvalue);
+  };
+
+  const submithandel = async (e) => {
+    e.preventDefault(); // stop page reload
+    const res = await axios.post(
+      `http://localhost:3000/appointments`,
+      formvalue
+    );
+    //console.log(res);
+    if (res.status == 201) {
+      setFormvalue({
+        ...formvalue,
+        Name: "",
+        Email: "",
+        Contact: "",
+        Doctor: "",
+        Date: "",
+        Time: "",
+        Problem: "",
+      });
+      alert("Your appointment is confirmed");
+      return false;
+    }
+  };
+
   return (
     <>
       <div>
@@ -50,7 +94,7 @@ function Appointment() {
               </div>
               <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div className="bg-light rounded h-100 d-flex align-items-center p-5">
-                  <form>
+                  <form action="" method="post" onSubmit={submithandel}>
                     <div className="row g-3">
                       <div className="col-12 col-sm-6">
                         <input
@@ -58,6 +102,9 @@ function Appointment() {
                           className="form-control border-0"
                           placeholder="Your Name"
                           style={{ height: 55 }}
+                          name="Name"
+                          value={formvalue.Name}
+                          onChange={getform}
                         />
                       </div>
                       <div className="col-12 col-sm-6">
@@ -66,6 +113,9 @@ function Appointment() {
                           className="form-control border-0"
                           placeholder="Your Email"
                           style={{ height: 55 }}
+                          name="Email"
+                          value={formvalue.Email}
+                          onChange={getform}
                         />
                       </div>
                       <div className="col-12 col-sm-6">
@@ -74,17 +124,23 @@ function Appointment() {
                           className="form-control border-0"
                           placeholder="Your Mobile"
                           style={{ height: 55 }}
+                          name="Contact"
+                          value={formvalue.Contact}
+                          onChange={getform}
                         />
                       </div>
                       <div className="col-12 col-sm-6">
                         <select
                           className="form-select border-0"
                           style={{ height: 55 }}
+                          name="Doctor"
+                          value={formvalue.Doctor}
+                          onChange={getform}
                         >
                           <option selected>Choose Doctor</option>
-                          <option value={1}>Doctor 1</option>
-                          <option value={2}>Doctor 2</option>
-                          <option value={3}>Doctor 3</option>
+                          <option>Doctor 1</option>
+                          <option>Doctor 2</option>
+                          <option>Doctor 3</option>
                         </select>
                       </div>
                       <div className="col-12 col-sm-6">
@@ -95,11 +151,13 @@ function Appointment() {
                         >
                           <input
                             type="text"
-                            className="form-control border-0 datetimepicker-input"
-                            placeholder="Choose Date"
+                            className="form-control border-0"
+                            placeholder="Enter Date"
                             data-target="#date"
-                            data-toggle="datetimepicker"
                             style={{ height: 55 }}
+                            name="Date"
+                            value={formvalue.Date}
+                            onChange={getform}
                           />
                         </div>
                       </div>
@@ -111,11 +169,13 @@ function Appointment() {
                         >
                           <input
                             type="text"
-                            className="form-control border-0 datetimepicker-input"
-                            placeholder="Choose Date"
+                            className="form-control border-0"
+                            placeholder="Enter time 9 am to 6 pm"
                             data-target="#time"
-                            data-toggle="datetimepicker"
                             style={{ height: 55 }}
+                            name="Time"
+                            value={formvalue.Time}
+                            onChange={getform}
                           />
                         </div>
                       </div>
@@ -125,6 +185,9 @@ function Appointment() {
                           rows={5}
                           placeholder="Describe your problem"
                           defaultValue={""}
+                          name="Problem"
+                          value={formvalue.Problem}
+                          onChange={getform}
                         />
                       </div>
                       <div className="col-12">

@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function Add_Medicine() {
+  const [formvalue, setFormvalue] = useState({
+    id: "",
+    Name: "",
+    Type: "",
+    Description: "",
+    Manufacturer: "",
+    Price: "",
+  });
+
+  const getform = (e) => {
+    setFormvalue({
+      ...formvalue,
+      id: new Date().getTime().toString(),
+      [e.target.name]: e.target.value,
+    });
+    console.log(formvalue);
+  };
+
+  const submithandel = async (e) => {
+    e.preventDefault(); // stop page reload
+    const res = await axios.post(`http://localhost:3000/medicine`, formvalue);
+    //console.log(res);
+    if (res.status == 201) {
+      setFormvalue({
+        ...formvalue,
+        Name: "",
+        Type: "",
+        Description: "",
+        Manufacturer: "",
+        Price: "",
+      });
+      alert("medicine added successfully");
+      return false;
+    }
+  };
+
   return (
     <>
       <div>
         <div className="container mt-5">
           <h2>Add Medicine</h2>
-          <form>
+          <form action="" method="post" onSubmit={submithandel}>
             <div className="form-group">
               <label htmlFor="name">Name:</label>
               <input
@@ -15,11 +52,21 @@ function Add_Medicine() {
                 id="name"
                 placeholder="Enter name"
                 required
+                name="Name"
+                value={formvalue.Name}
+                onChange={getform}
               />
             </div>
             <div className="form-group">
               <label htmlFor="type">Type:</label>
-              <select className="form-control" id="type" required>
+              <select
+                className="form-control"
+                id="type"
+                required
+                name="Type"
+                value={formvalue.Type}
+                onChange={getform}
+              >
                 <option value>Select type</option>
                 <option value="Tablet">Tablet</option>
                 <option value="Capsule">Capsule</option>
@@ -36,6 +83,9 @@ function Add_Medicine() {
                 rows={3}
                 placeholder="Enter description"
                 required
+                name="Description"
+                value={formvalue.Description}
+                onChange={getform}
                 defaultValue={""}
               />
             </div>
@@ -47,6 +97,9 @@ function Add_Medicine() {
                 id="manufacturer"
                 placeholder="Enter manufacturer"
                 required
+                name="Manufacturer"
+                value={formvalue.Manufacturer}
+                onChange={getform}
               />
             </div>
             <div className="form-group">
@@ -57,6 +110,9 @@ function Add_Medicine() {
                 id="price"
                 placeholder="Enter price"
                 required
+                name="Price"
+                value={formvalue.Price}
+                onChange={getform}
               />
             </div>
             <button type="submit" className="btn btn-primary">

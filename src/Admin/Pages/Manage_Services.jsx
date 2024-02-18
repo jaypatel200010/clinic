@@ -1,6 +1,22 @@
-import React from "react";
-
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 function Manage_Services() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  const fetch = async () => {
+    const res = await axios.get(`http://localhost:3000/services`);
+    console.log(res.data);
+    setData(res.data);
+  };
+  const deleteHandel = async (id) => {
+    const res = await axios.delete(`http://localhost:3000/services/${id}`);
+    fetch();
+  };
+
   return (
     <>
       <div>
@@ -12,12 +28,12 @@ function Manage_Services() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Cost</th>
+                <th>Cost(Rs.)</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              {/* <tr>
                 <td>1</td>
                 <td>Service A</td>
                 <td>
@@ -28,8 +44,26 @@ function Manage_Services() {
                   <button className="btn btn-sm btn-primary">Edit</button>
                   <button className="btn btn-sm btn-danger">Delete</button>
                 </td>
-              </tr>
-
+              </tr> */}
+              {data.map((value) => {
+                return (
+                  <tr>
+                    <td>{value.id}</td>
+                    <td>{value.Name}</td>
+                    <td>{value.Description}</td>
+                    <td>{value.Cost}</td>
+                    <td>
+                      <button className="btn btn-sm btn-primary">Edit</button>
+                      <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => deleteHandel(value.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
               {/* Add more rows for additional medical services as needed */}
             </tbody>
           </table>

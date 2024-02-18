@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
 
 function Contact() {
+  const [formvalue, setFormvalue] = useState({
+    id: "",
+    Name: "",
+    Email: "",
+    Subject: "",
+    Message: "",
+  });
+
+  const getform = (e) => {
+    setFormvalue({
+      ...formvalue,
+      id: new Date().getTime().toString(),
+      [e.target.name]: e.target.value,
+    });
+    console.log(formvalue);
+  };
+
+  const submithandel = async (e) => {
+    e.preventDefault(); // stop page reload
+    const res = await axios.post(`http://localhost:3000/patient`, formvalue);
+    //console.log(res);
+    if (res.status == 201) {
+      setFormvalue({
+        ...formvalue,
+        Name: "",
+        Email: "",
+        Subject: "",
+        Message: "",
+      });
+      alert("Thanks for contacting us..");
+      return false;
+    }
+  };
+
   return (
     <>
       <div>
@@ -69,7 +104,7 @@ function Contact() {
                     </a>
                     .
                   </p>
-                  <form>
+                  <form action="" method="post" onSubmit={submithandel}>
                     <div className="row g-3">
                       <div className="col-md-6">
                         <div className="form-floating">
@@ -77,6 +112,9 @@ function Contact() {
                             type="text"
                             className="form-control"
                             id="name"
+                            name="Name"
+                            value={formvalue.Name}
+                            onChange={getform}
                             placeholder="Your Name"
                           />
                           <label htmlFor="name">Your Name</label>
@@ -89,6 +127,9 @@ function Contact() {
                             className="form-control"
                             id="email"
                             placeholder="Your Email"
+                            name="Email"
+                            value={formvalue.Email}
+                            onChange={getform}
                           />
                           <label htmlFor="email">Your Email</label>
                         </div>
@@ -100,6 +141,9 @@ function Contact() {
                             className="form-control"
                             id="subject"
                             placeholder="Subject"
+                            name="Subject"
+                            value={formvalue.Subject}
+                            onChange={getform}
                           />
                           <label htmlFor="subject">Subject</label>
                         </div>
@@ -112,6 +156,9 @@ function Contact() {
                             id="message"
                             style={{ height: 100 }}
                             defaultValue={""}
+                            name="Message"
+                            value={formvalue.Message}
+                            onChange={getform}
                           />
                           <label htmlFor="message">Message</label>
                         </div>

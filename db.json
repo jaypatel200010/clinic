@@ -1,131 +1,159 @@
 {
   "doctor": [
     {
-      "id": 1,
-      "name": "Dr. John Doe",
-      "Specialty": "Cardiology",
-      "Hospital": "Main hospital",
-      "contact": 9722041171,
-      "email": "john@gmail.com",
-      "status": "Unblock"
+      "id": "1708234015761",
+      "name": "Dr. shon",
+      "Specialty": "neurology",
+      "Hospital": "civil",
+      "contact": "9985564237",
+      "email": "shon@gmail.com"
     },
     {
-      "id": 2,
-      "name": "Dr. Smith",
-      "Specialty": "Neurology",
-      "Hospital": "Main hospital",
-      "contact": 9722041171,
-      "email": "smith@gmail.com",
-      "status": "Unblock"
+      "id": "1708244516677",
+      "name": "Jay ",
+      "Specialty": "Surgon",
+      "Hospital": "civil",
+      "contact": "9033296796",
+      "email": "jp@gmail.com"
     }
   ],
   "medicine": [
     {
-      "id": 1,
-      "name": "paracetamol",
-      "Type": "Tablet",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Manufacturer": "Manufacturer X",
-      "Price": "10rs"
+      "id": "1708235793661",
+      "Name": "ometab",
+      "Type": "Capsule",
+      "Description": "for acidity",
+      "Manufacturer": "zydus",
+      "Price": "10"
     },
     {
-      "id": 2,
-      "name": "omeprazole",
+      "id": "1708235859495",
+      "Name": "ometab",
       "Type": "Tablet",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Manufacturer": "Manufacturer X",
-      "Price": "10rs"
+      "Description": "dcgvfdgfdgfdrg",
+      "Manufacturer": "zydus",
+      "Price": "10"
+    },
+    {
+      "id": "1708244533436",
+      "Name": "ometab",
+      "Type": "Tablet",
+      "Description": "gfhfghgfhfgh",
+      "Manufacturer": "zydus",
+      "Price": "20"
     }
   ],
   "supplies": [
     {
-      "id": 1,
-      "name": "bed",
+      "id": "1708236962612",
+      "Name": "BED",
       "Category": "DME",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Quantity": 2,
-      "Price": "1000rs"
+      "Description": "Heart attack",
+      "Quantity": "1",
+      "Price": "200"
     },
     {
-      "id": 2,
-      "name": "nebulizer",
+      "id": "1708237230909",
+      "Name": "CPAP",
+      "Category": "Supplies",
+      "Description": "heart attack",
+      "Quantity": "1",
+      "Price": "500"
+    },
+    {
+      "id": "1708244559028",
+      "Name": "BED",
       "Category": "DME",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Quantity": 2,
-      "Price": "1000rs"
+      "Description": "fhfghfgdhfgh",
+      "Quantity": "1",
+      "Price": "20"
     }
   ],
   "services": [
     {
-      "id": 1,
-      "name": "bed",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "cost": "2000rs"
+      "id": "1708238012214",
+      "Name": "neurology",
+      "Description": "jahbjkxhajksdhaldfoksadjdhfksju",
+      "Cost": "2000"
     },
     {
-      "id": 2,
-      "name": "bed",
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "cost": "2000rs"
+      "id": "1708238116174",
+      "Name": "orthopedics",
+      "Description": "jsdhjcfdshfjksdfhksdjhk",
+      "Cost": "5000"
+    },
+    {
+      "id": "1708244575939",
+      "Name": "Cardiology",
+      "Description": "sdfsdfsdfsdf",
+      "Cost": "8000"
     }
   ],
   "patient": [
     {
-      "id": 1,
-      "name": "Jay Patel",
-      "Age": 23,
-      "Gender": "male",
-      "Address": "123 Main Street, City",
-      "contact": 9722041171,
-      "email": "jay@gmail.com"
+      "id": "1708244600797",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Subject": "jhjcshcksxcjhsxkcsjh",
+      "Message": "sdfdfsdfsdf"
     },
     {
-      "id": 2,
-      "name": "Jay Patel",
-      "Age": 23,
-      "Gender": "male",
-      "Address": "123 Main Street, City",
-      "contact": 9722041171,
-      "email": "jay@gmail.com"
+      "id": "1708244647663",
+      "Name": "raj",
+      "Email": "raj@gmail.com",
+      "Subject": "location",
+      "Message": "jasdaikhsdjakjsdhakjsdaj"
     }
   ],
   "feedback": [
     {
-      "id": 1,
-      "name": "Jay Patel",
-      "email": "jay@gmail.com",
-      "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "id": "1708244494388",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Feedback": "hello"
     },
     {
-      "id": 2,
-      "name": "Jay Patel",
-      "email": "jay@gmail.com",
-      "feedback": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "id": "1708244676756",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Feedback": "gjghjghjghjhgjhgj"
     }
   ],
   "appointments": [
     {
-      "id": 1,
-      "name": "Jay Patel",
-      "email": "jay@gmail.com",
-      "contact": 9722041171,
-      "Doctor": "Dr. Smith",
-      "date": "02-03-2024",
-      "Problem Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "id": "1708241420242",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Contact": "9033296796",
+      "Doctor": "Doctor 2",
+      "Date": "18/02/2024",
+      "Time": "1pm",
+      "Problem": "vxcvcxvxvxc"
     },
     {
-      "id": 2,
-      "name": "Jay Patel",
-      "email": "jay@gmail.com",
-      "contact": 9722041171,
-      "Doctor": "Dr. Smith",
-      "date": "02-03-2024",
-      "Problem Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "id": "1708241557745",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Contact": "9033296796",
+      "Doctor": "Doctor 3",
+      "Date": "18/02/2024",
+      "Time": "1pm",
+      "Problem": "sfdsfsdfdfsdfdfdsd"
+    },
+    {
+      "id": "1708244700572",
+      "Name": "jay",
+      "Email": "jay@gmail.com",
+      "Contact": "9033296796",
+      "Doctor": "Doctor 3",
+      "Date": "18/02/2024",
+      "Time": "1pm",
+      "Problem": "dfdfdfdfsdf"
     }
   ],
   "admin": [
     {
-      "id": 1,
+      "id": "1",
       "name": "admin",
       "email": "admin@gmail.com",
       "password": "123456"

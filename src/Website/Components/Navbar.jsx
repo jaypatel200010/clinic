@@ -118,6 +118,9 @@ function Navbar() {
               <NavLink to="/contact" className="nav-item nav-link">
                 Contact
               </NavLink>
+              <NavLink to="/feedback" className="nav-item nav-link">
+                Feedback
+              </NavLink>
             </div>
             <NavLink
               to="/appointment"

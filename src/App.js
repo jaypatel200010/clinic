@@ -26,6 +26,7 @@ import Signup from "./Website/Pages/Signup";
 import Login from "./Website/Pages/Login";
 import Manage_feedback from "./Admin/Pages/Manage_feedback";
 import Manage_Appointments from "./Admin/Pages/Manage_Appointments";
+import Feedback from "./Website/Pages/Feedback";
 function App() {
   return (
     <>
@@ -108,6 +109,14 @@ function App() {
             element={
               <>
                 <Login />
+              </>
+            }
+          ></Route>
+          <Route
+            path="feedback"
+            element={
+              <>
+                <Feedback />
               </>
             }
           ></Route>

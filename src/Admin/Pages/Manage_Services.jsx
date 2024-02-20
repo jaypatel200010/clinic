@@ -26,32 +26,28 @@ function Manage_Services() {
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Cate_Id</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Cost(Rs.)</th>
+                <th>Image</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* <tr>
-                <td>1</td>
-                <td>Service A</td>
-                <td>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </td>
-                <td>$100</td>
-                <td>
-                  <button className="btn btn-sm btn-primary">Edit</button>
-                  <button className="btn btn-sm btn-danger">Delete</button>
-                </td>
-              </tr> */}
               {data.map((value) => {
                 return (
                   <tr>
                     <td>{value.id}</td>
+                    <td>{value.Cate_id}</td>
                     <td>{value.Name}</td>
-                    <td>{value.Description}</td>
+                    <td>{value.Service_Desc}</td>
                     <td>{value.Cost}</td>
+                    <td>
+                      <img src={value.Image} alt="" width="50px" />
+                    </td>
+                    <td>{value.Status}</td>
                     <td>
                       <button className="btn btn-sm btn-primary">Edit</button>
                       <button

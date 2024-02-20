@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
 
 function Service() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  const fetch = async () => {
+    const res = await axios.get(`http://localhost:3000/categories`);
+    console.log(res.data);
+    setData(res.data);
+  };
+
   return (
     <>
       <div>
@@ -21,138 +34,34 @@ function Service() {
               <h1>Health Care Solutions</h1>
             </div>
             <div className="row g-4">
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
+              {data.map((value, index, arr) => {
+                return (
                   <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
+                    className="col-lg-4 col-md-6 wow fadeInUp"
+                    data-wow-delay="0.1s"
                   >
-                    <i className="fa fa-heartbeat text-primary fs-4" />
+                    <div className="service-item bg-light rounded h-100 p-5">
+                      <div
+                        className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+                        style={{ width: 65, height: 65 }}
+                      >
+                        <img
+                          src={value.Cate_Img}
+                          width="50%"
+                          height="50px"
+                          alt=""
+                        />
+                      </div>
+                      <h4 className="mb-3">{value.Cate_name}</h4>
+                      <p className="mb-4">{value.Cate_Desc}</p>
+                      <a className="btn" href>
+                        <i className="fa fa-plus text-primary me-3" />
+                        Read More
+                      </a>
+                    </div>
                   </div>
-                  <h4 className="mb-3">Cardiology</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.3s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
-                  >
-                    <i className="fa fa-x-ray text-primary fs-4" />
-                  </div>
-                  <h4 className="mb-3">Pulmonary</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.5s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
-                  >
-                    <i className="fa fa-brain text-primary fs-4" />
-                  </div>
-                  <h4 className="mb-3">Neurology</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
-                  >
-                    <i className="fa fa-wheelchair text-primary fs-4" />
-                  </div>
-                  <h4 className="mb-3">Orthopedics</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.3s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
-                  >
-                    <i className="fa fa-tooth text-primary fs-4" />
-                  </div>
-                  <h4 className="mb-3">Dental Surgery</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
-              <div
-                className="col-lg-4 col-md-6 wow fadeInUp"
-                data-wow-delay="0.5s"
-              >
-                <div className="service-item bg-light rounded h-100 p-5">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                    style={{ width: 65, height: 65 }}
-                  >
-                    <i className="fa fa-vials text-primary fs-4" />
-                  </div>
-                  <h4 className="mb-3">Laboratory</h4>
-                  <p className="mb-4">
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
-                  </p>
-                  <a className="btn" href>
-                    <i className="fa fa-plus text-primary me-3" />
-                    Read More
-                  </a>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -90,6 +90,23 @@ function Aheader() {
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                 >
+                  Categories
+                </NavLink>
+                <div className="dropdown-menu rounded-0 rounded-bottom m-0">
+                  <NavLink to="/add-categories" className="dropdown-item">
+                    Add
+                  </NavLink>
+                  <NavLink to="/manage-categories" className="dropdown-item">
+                    Manage
+                  </NavLink>
+                </div>
+              </div>
+              <div className="nav-item dropdown">
+                <NavLink
+                  to="#"
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                >
                   Services
                 </NavLink>
                 <div className="dropdown-menu rounded-0 rounded-bottom m-0">

@@ -27,6 +27,8 @@ import Login from "./Website/Pages/Login";
 import Manage_feedback from "./Admin/Pages/Manage_feedback";
 import Manage_Appointments from "./Admin/Pages/Manage_Appointments";
 import Feedback from "./Website/Pages/Feedback";
+import Add_Catagories from "./Admin/Pages/Add_Catagories";
+import Manage_Catagories from "./Admin/Pages/Manage_Catagories";
 function App() {
   return (
     <>
@@ -218,6 +220,26 @@ function App() {
               <>
                 <Aheader />
                 <Manage_Supplies />
+                <Afooter />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/add-categories"
+            element={
+              <>
+                <Aheader />
+                <Add_Catagories />
+                <Afooter />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/manage-categories"
+            element={
+              <>
+                <Aheader />
+                <Manage_Catagories />
                 <Afooter />
               </>
             }

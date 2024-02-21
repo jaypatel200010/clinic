@@ -1,4 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 import Home from "./Website/Pages/Home";
 import About from "./Website/Pages/About";
 import Service from "./Website/Pages/Service";
@@ -29,10 +33,12 @@ import Manage_Appointments from "./Admin/Pages/Manage_Appointments";
 import Feedback from "./Website/Pages/Feedback";
 import Add_Catagories from "./Admin/Pages/Add_Catagories";
 import Manage_Catagories from "./Admin/Pages/Manage_Catagories";
+
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ToastContainer></ToastContainer>
         <Routes>
           <Route
             path="/"

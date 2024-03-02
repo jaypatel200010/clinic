@@ -12,6 +12,7 @@ import Appointment from "./Website/Pages/Appointment";
 import Testimonials from "./Website/Pages/Testimonials";
 import Contact from "./Website/Pages/Contact";
 import PNP from "./Website/Pages/PNP";
+import Profile from "./Website/Pages/Profile";
 
 import Dashboard from "./Admin/Pages/Dashboard";
 import Admin_Login from "./Admin/Pages/Admin_Login";
@@ -117,6 +118,14 @@ function App() {
             element={
               <>
                 <Login />
+              </>
+            }
+          ></Route>
+          <Route
+            path="profile"
+            element={
+              <>
+                <Profile />
               </>
             }
           ></Route>

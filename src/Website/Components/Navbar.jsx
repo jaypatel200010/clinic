@@ -1,7 +1,17 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Navbar() {
+  const redirect = useNavigate();
+
+  // Delete session
+  const logout = () => {
+    localStorage.removeItem("userid");
+    localStorage.removeItem("uname");
+    toast.success("Logout Success");
+    redirect("/");
+  };
   return (
     <>
       <div>
@@ -129,7 +139,53 @@ function Navbar() {
               Appointment
               <i className="fa fa-arrow-right ms-3" />
             </NavLink>
+            {(() => {
+              //  Use  session
+              if (localStorage.getItem("userid")) {
+                return (
+                  <NavLink to="/profile" className="nav-item nav-link">
+                    Hi .. {localStorage.getItem("uname")}
+                  </NavLink>
+                );
+              }
+            })()}
           </div>
+          {/* {(() => {
+            //  Use  session
+            if (localStorage.getItem("userid")) {
+              return (
+                <NavLink to="/profile" className="nav-item nav-link">
+                  Hi .. {localStorage.getItem("uname")}
+                </NavLink>
+              );
+            }
+          })()} */}
+          {(() => {
+            if (localStorage.getItem("userid")) {
+              return (
+                <>
+                  <a
+                    href="javascript:void(0)"
+                    onClick={logout}
+                    className="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                  >
+                    Logout
+                  </a>
+                </>
+              );
+            } else {
+              return (
+                <>
+                  <NavLink
+                    to="/login"
+                    className="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                  >
+                    LOG IN
+                  </NavLink>
+                </>
+              );
+            }
+          })()}
         </nav>
         {/* Navbar End */}
       </div>

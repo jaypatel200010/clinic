@@ -1,6 +1,7 @@
 import React from "react";
 import Header1 from "../Components/Header1";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -486,7 +487,7 @@ function Home() {
               </div>
               <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div className="bg-light rounded h-100 d-flex align-items-center p-5">
-                  <form>
+                  {/* <form>
                     <div className="row g-3">
                       <div className="col-12 col-sm-6">
                         <input
@@ -564,15 +565,16 @@ function Home() {
                         />
                       </div>
                       <div className="col-12">
-                        <button
-                          className="btn btn-primary w-100 py-3"
-                          type="submit"
-                        >
-                          Book Appointment
-                        </button>
+                        
                       </div>
                     </div>
-                  </form>
+                  </form> */}
+                  <Link
+                    className="btn btn-primary w-100 py-3"
+                    to="/appointment"
+                  >
+                    Book Appointment
+                  </Link>
                 </div>
               </div>
             </div>

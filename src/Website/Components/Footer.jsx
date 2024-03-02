@@ -100,7 +100,7 @@ function Footer() {
                   type="text"
                   placeholder="Your email"
                 /> */}
-                <Link to="/login">
+                {/* <Link to="/login">
                   <button
                     type="button"
                     className="btn btn-primary py-2 position-absolute mt-2"
@@ -115,7 +115,7 @@ function Footer() {
                   >
                     SignUp
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

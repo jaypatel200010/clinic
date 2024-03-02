@@ -3,7 +3,14 @@ import React, { useState, useEffect } from "react";
 import Header2 from "../Components/Header2";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
 function Login() {
+  useEffect(() => {
+    if (localStorage.getItem("userid")) {
+      redirect("/");
+    }
+  }, []);
+
   const redirect = useNavigate(); // redirect any routes
 
   const [formvalue, setFormvalue] = useState({
@@ -41,6 +48,10 @@ function Login() {
       console.log(res);
       if (res.data.length > 0) {
         if (res.data[0].password == formvalue.password) {
+          // create session
+          localStorage.setItem("userid", res.data[0].id);
+          localStorage.setItem("uname", res.data[0].name);
+
           toast.success("Login Success");
           redirect("/");
         } else {
@@ -56,7 +67,7 @@ function Login() {
 
   return (
     <div>
-      <Header2 />
+      <Header2 title={"Login"} />
       <div className="container mt-5">
         <h2>Login</h2>
         <form action="" method="post" onSubmit={submithandel}>
@@ -90,6 +101,7 @@ function Login() {
           <Link to="/signup">If you not Registered then Register Here</Link>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }

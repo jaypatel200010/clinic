@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Service() {
+  const redirect = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ function Service() {
                     className="col-lg-4 col-md-6 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <div className="service-item bg-light rounded h-100 p-5">
+                    <div className="service-item bg-light rounded h-100 p-5 ">
                       <div
                         className="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
                         style={{ width: 65, height: 65 }}
@@ -53,8 +55,13 @@ function Service() {
                         />
                       </div>
                       <h4 className="mb-3">{value.Cate_name}</h4>
-                      <p className="mb-4">{value.Cate_Desc}</p>
-                      <a className="btn" href>
+                      {/* <h5 className="mb-4">{value.id}</h5> */}
+                      <p className="mb-3">{value.Cate_Desc}</p>
+                      <a
+                        className="btn"
+                        onClick={() => redirect("/view_service/" + value.id)}
+                        href="javascript:void(0)"
+                      >
                         <i className="fa fa-plus text-primary me-3" />
                         Read More
                       </a>

@@ -67,7 +67,7 @@ function Aheader() {
                   </NavLink>
                 </div>
               </div>
-              <div className="nav-item dropdown">
+              {/* <div className="nav-item dropdown">
                 <NavLink
                   to="#"
                   className="nav-link dropdown-toggle"
@@ -83,7 +83,10 @@ function Aheader() {
                     Manage
                   </NavLink>
                 </div>
-              </div>
+              </div> */}
+              <NavLink to="/manage-user" className="nav-item nav-link">
+                User
+              </NavLink>
               <div className="nav-item dropdown">
                 <NavLink
                   to="#"

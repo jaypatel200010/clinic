@@ -34,6 +34,8 @@ import Manage_Appointments from "./Admin/Pages/Manage_Appointments";
 import Feedback from "./Website/Pages/Feedback";
 import Add_Catagories from "./Admin/Pages/Add_Catagories";
 import Manage_Catagories from "./Admin/Pages/Manage_Catagories";
+import View_service from "./Website/Pages/View_service";
+import Manage_user from "./Admin/Pages/Manage_user";
 
 function App() {
   return (
@@ -62,6 +64,14 @@ function App() {
             element={
               <>
                 <Service />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/view_service/:cate_id"
+            element={
+              <>
+                <View_service />
               </>
             }
           ></Route>
@@ -154,8 +164,9 @@ function App() {
             path="/admin-login"
             element={
               <>
+                {/* <Aheader /> */}
                 <Admin_Login />
-                {/* <Afooter /> */}
+                <Afooter />
               </>
             }
           ></Route>
@@ -219,7 +230,7 @@ function App() {
               </>
             }
           ></Route>
-          <Route
+          {/* <Route
             path="/add-supplies"
             element={
               <>
@@ -235,6 +246,16 @@ function App() {
               <>
                 <Aheader />
                 <Manage_Supplies />
+                <Afooter />
+              </>
+            }
+          ></Route> */}
+          <Route
+            path="/manage-user"
+            element={
+              <>
+                <Aheader />
+                <Manage_user />
                 <Afooter />
               </>
             }

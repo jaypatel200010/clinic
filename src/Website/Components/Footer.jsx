@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -116,6 +116,12 @@ function Footer() {
                     SignUp
                   </button>
                 </Link> */}
+                <Link
+                  to="/admin-login"
+                  className="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                >
+                  Admin-Login
+                </Link>
               </div>
             </div>
           </div>

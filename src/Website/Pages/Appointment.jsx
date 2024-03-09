@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header2 from "../Components/Header2";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function Appointment() {
+  const redirect = useNavigate();
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    if (localStorage.getItem("userid")) {
+      fetch();
+    } else {
+      redirect("/login");
+    }
+  }, []);
+  const fetch = async () => {
+    const res = await axios.get(
+      `http://localhost:3000/user/${localStorage.getItem("userid")}`
+    );
+    console.log(res.data);
+    setData(res.data); // set data from api in data var state
+  };
   const [formvalue, setFormvalue] = useState({
     id: "",
     Name: "",

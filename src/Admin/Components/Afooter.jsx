@@ -1,6 +1,17 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Afooter() {
+  const redirect = useNavigate();
+
+  // Delete session
+  const logout = () => {
+    localStorage.removeItem("adminid");
+    localStorage.removeItem("adminname");
+    toast.success("Logout Success");
+    redirect("/admin-login");
+  };
   return (
     <>
       <div>
@@ -90,22 +101,44 @@ function Afooter() {
               <div className="col-lg-3 col-md-6">
                 <h5 className="text-light mb-4">Newsletter</h5>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                {/* <div
+                <div
                   className="position-relative mx-auto"
                   style={{ maxWidth: 400 }}
                 >
-                  <input
-                    className="form-control border-0 w-100 py-3 ps-4 pe-5"
-                    type="text"
-                    placeholder="Your email"
-                  />
-                  <button
+                  {(() => {
+                    if (localStorage.getItem("adminid")) {
+                      return (
+                        <>
+                          <a
+                            href="javascript:void(0)"
+                            onClick={logout}
+                            className="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                          >
+                            Logout
+                          </a>
+                        </>
+                      );
+                    } else {
+                      return (
+                        <>
+                          <Link
+                            to="/admin-login"
+                            className="btn btn-danger rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                          >
+                            LOG IN
+                          </Link>
+                        </>
+                      );
+                    }
+                  })()}
+
+                  {/* <button
                     type="button"
-                    className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                    className="btn btn-primary py-2 position-absolute  "
                   >
                     SignUp
-                  </button>
-                </div> */}
+                  </button> */}
+                </div>
               </div>
             </div>
           </div>

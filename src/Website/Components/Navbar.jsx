@@ -132,13 +132,21 @@ function Navbar() {
                 Feedback
               </NavLink>
             </div>
-            <NavLink
-              to="/appointment"
-              className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
-            >
-              Appointment
-              <i className="fa fa-arrow-right ms-3" />
-            </NavLink>
+
+            {(() => {
+              //  Use  session
+              if (localStorage.getItem("userid")) {
+                return (
+                  <NavLink
+                    to="/appointment"
+                    className="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                  >
+                    Appointment
+                    <i className="fa fa-arrow-right ms-3" />
+                  </NavLink>
+                );
+              }
+            })()}
             {(() => {
               //  Use  session
               if (localStorage.getItem("userid")) {
@@ -150,16 +158,6 @@ function Navbar() {
               }
             })()}
           </div>
-          {/* {(() => {
-            //  Use  session
-            if (localStorage.getItem("userid")) {
-              return (
-                <NavLink to="/profile" className="nav-item nav-link">
-                  Hi .. {localStorage.getItem("uname")}
-                </NavLink>
-              );
-            }
-          })()} */}
           {(() => {
             if (localStorage.getItem("userid")) {
               return (

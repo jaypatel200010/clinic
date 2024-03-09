@@ -48,12 +48,17 @@ function Login() {
       console.log(res);
       if (res.data.length > 0) {
         if (res.data[0].password == formvalue.password) {
-          // create session
-          localStorage.setItem("userid", res.data[0].id);
-          localStorage.setItem("uname", res.data[0].name);
+          if (res.data[0].status == "Unblock") {
+            // create session
+            localStorage.setItem("userid", res.data[0].id);
+            localStorage.setItem("uname", res.data[0].name);
 
-          toast.success("Login Success");
-          redirect("/");
+            toast.success("Login Success");
+            redirect("/");
+          } else {
+            toast.error("Blocked account so contact us ...");
+            return false;
+          }
         } else {
           toast.error("Password incorrect");
           return false;

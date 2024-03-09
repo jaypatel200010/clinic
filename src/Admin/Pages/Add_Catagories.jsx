@@ -1,6 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 function Add_Catagories() {
+  const redirect = useNavigate();
+  const [data, setData] = useState({});
+  useEffect(() => {
+    if (localStorage.getItem("adminid")) {
+      fetch();
+    } else {
+      redirect("/admin-login");
+    }
+  }, []);
+  const fetch = async () => {
+    const res = await axios.get(
+      `http://localhost:3000/admin/${localStorage.getItem("adminid")}`
+    );
+    console.log(res.data);
+    setData(res.data); // set data from api in data var state
+  };
+
   const [formvalue, setFormvalue] = useState({
     id: "",
     Cate_name: "",
